@@ -85,19 +85,19 @@ class TestRegistrationApi(unittest.TestCase):
         self.assertEqual(self.response.json(), self.MISSING_ATTRIBUTE)
 
     def test_post_registration_with_numeric_name(self):
-        """Test registration with a numeric name. (They should be fail.)"""
+        """Test registration with a numeric name. (They should be fail to registration.)"""
         self.response = requests.post(API_URL, self.sample_body(name = 1101))
         self.assertEqual(self.response.status_code, 200)
         self.assertNotEqual(self.response.json(), self.SUCCESS)
 
     def test_post_registration_with_numeric_surname(self):
-        """Test registration with a numeric surname. (They should be fail.)"""
+        """Test registration with a numeric surname. (They should be fail to registration.)"""
         self.response = requests.post(API_URL, self.sample_body(surname = 1101))
         self.assertEqual(self.response.status_code, 200)
         self.assertNotEqual(self.response.json(), self.SUCCESS)
 
     def test_post_registration_with_numeric_occupation(self):
-        """Test registration with a numeric occupation. (They should be fail.)"""
+        """Test registration with a numeric occupation. (They should be fail to registration.)"""
         self.response = requests.post(API_URL, self.sample_body(occupation = 1101))
         self.assertEqual(self.response.status_code, 200)
         self.assertNotEqual(self.response.json(), self.SUCCESS)
